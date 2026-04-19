@@ -16,7 +16,7 @@ export default function About() {
           </p>
         </div>
         
-        <div className="section m-0 p-0 overflow-hidden h-full flex">
+        <div className="section m-0 !p-0 overflow-hidden h-full flex">
           <img 
             src="/onas.jpg" 
             alt="Naše zázemí" 
