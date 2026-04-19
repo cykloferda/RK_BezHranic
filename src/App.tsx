@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Offer from './pages/Offer';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Functional from './pages/Functional';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
             <Route path="/nabidka" element={<Offer />} />
             <Route path="/onas" element={<About />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/functional" element={<Functional />} />
           </Routes>
         </main>
       </div>

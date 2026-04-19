@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Phone, Info, List, Building2 } from 'lucide-react';
+import { Home, Phone, Info, List, Building2, Wrench } from 'lucide-react';
 
 export default function Navigation() {
   return (
@@ -31,6 +31,12 @@ export default function Navigation() {
         className={({ isActive }) => isActive ? 'active-link' : ''}
       >
         <Phone size={18} /> Kontakt
+      </NavLink>
+      <NavLink 
+        to="/functional" 
+        className={({ isActive }) => isActive ? 'active-link' : ''}
+      >
+        <Wrench size={18} /> Pracovní
       </NavLink>
     </nav>
   );
