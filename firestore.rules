@@ -1,0 +1,45 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function isSignedIn() { return request.auth != null; }
+
+    function isValidReview(data) {
+      return data.keys().hasAll(['authorName', 'text', 'rating', 'createdAt'])
+        && data.keys().size() == 4
+        && data.authorName is string && data.authorName.size() >= 2 && data.authorName.size() <= 70
+        && data.text is string && data.text.size() >= 5 && data.text.size() <= 1000
+        && data.rating is int && data.rating >= 1 && data.rating <= 5
+        && data.createdAt == request.time;
+    }
+
+    function isValidReply(data) {
+      return data.keys().hasAll(['authorName', 'text', 'createdAt'])
+        && data.keys().size() == 3
+        && data.authorName is string && data.authorName.size() >= 2 && data.authorName.size() <= 70
+        && data.text is string && data.text.size() >= 1 && data.text.size() <= 1000
+        && data.createdAt == request.time;
+    }
+
+    match /reviews/{reviewId} {
+      allow list, get: if true; // Publicly readable
+      allow create: if isValidReview(incoming()) && isValidId(reviewId);
+      allow update, delete: if false; // Reviews are immutable in this demo
+    }
+
+    match /reviews/{reviewId}/replies/{replyId} {
+      allow list, get: if true;
+      allow create: if isValidReply(incoming()) && isValidId(replyId) && isValidId(reviewId)
+                    && exists(/databases/$(database)/documents/reviews/$(reviewId));
+      allow update, delete: if false;
+    }
+  }
+}

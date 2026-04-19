@@ -5,6 +5,7 @@ import Offer from './pages/Offer';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Functional from './pages/Functional';
+import Reviews from './pages/Reviews';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/onas" element={<About />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/functional" element={<Functional />} />
+            <Route path="/recenze" element={<Reviews />} />
           </Routes>
         </main>
       </div>

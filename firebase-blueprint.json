@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "User review of the real estate office",
+      "type": "object",
+      "properties": {
+        "authorName": { "type": "string", "description": "Display name of the reviewer" },
+        "text": { "type": "string", "description": "The review content" },
+        "rating": { "type": "integer", "description": "Star rating from 1 to 5" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp when the review was created" }
+      },
+      "required": ["authorName", "text", "createdAt"]
+    },
+    "Reply": {
+      "title": "Reply",
+      "description": "A reply to a review",
+      "type": "object",
+      "properties": {
+        "authorName": { "type": "string", "description": "Name of the replier" },
+        "text": { "type": "string", "description": "The reply content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of the reply" }
+      },
+      "required": ["authorName", "text", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Top-level reviews"
+    },
+    "/reviews/{reviewId}/replies/{replyId}": {
+      "schema": "Reply",
+      "description": "Replies nested under a specific review"
+    }
+  }
+}
