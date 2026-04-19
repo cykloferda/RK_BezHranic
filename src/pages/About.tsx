@@ -5,7 +5,7 @@ export default function About() {
       <p>Jsme váš partner pro reality v česko-německém pohraničí.</p>
       
       <div className="grid-2 mt-8">
-        <div className="section">
+        <div className="section m-0">
           <h2>Naše vize</h2>
           <p>
             Reality "Bez Hranic" vznikly s myšlenkou propojit lidi se zajímavým bydlením v regionu, kde se hranice stávají jen čarou na mapě. 
@@ -16,7 +16,7 @@ export default function About() {
           </p>
         </div>
         
-        <div className="map-embed h-full min-h-[300px]">
+        <div className="map-embed h-full">
           <img 
             src="/onas.jpg" 
             alt="Naše zázemí" 

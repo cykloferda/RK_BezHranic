@@ -2,7 +2,7 @@ export default function Offer() {
   return (
     <div className="container">
       <h1>Nabídka nemovitostí</h1>
-      <p>Prohlédněte si naši aktuální nabídku domů, bytů a pozemků v regionu Zittau.</p>
+      <p>Prohlédněte si naši aktuální nabídku domů, bytů a pozemků v regionu Žitavy a okolí.</p>
       
       <div className="section">
         <div className="airtable-embed">
