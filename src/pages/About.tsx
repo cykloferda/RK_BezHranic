@@ -18,7 +18,7 @@ export default function About() {
         
         <div className="map-embed h-full min-h-[300px]">
           <img 
-            src="/onas.jpg.jpeg" 
+            src="/onas.jpg" 
             alt="Naše zázemí" 
             className="w-full h-full object-cover" 
             referrerPolicy="no-referrer"
