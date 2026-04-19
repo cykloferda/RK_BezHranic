@@ -69,7 +69,7 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[110] bg-surface lg:hidden flex flex-col p-6 h-screen"
+            className="fixed inset-0 z-[110] bg-white lg:hidden flex flex-col p-6 h-screen shadow-2xl"
           >
             <div className="flex justify-between items-center mb-8">
               <div className="logo text-xl font-bold text-brand flex items-center gap-2">
